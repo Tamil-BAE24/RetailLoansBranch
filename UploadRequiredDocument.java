@@ -14,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import approvals.BranchCheckerApproval;
 import baseclass.ProjectSpecificMethod;
 
 public class UploadRequiredDocument extends ProjectSpecificMethod{
@@ -21,7 +22,7 @@ public class UploadRequiredDocument extends ProjectSpecificMethod{
 	WebDriverWait webdwait = new WebDriverWait(driver, Duration.ofSeconds(180));
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 	
-	public void uploadDocument(String type) throws InterruptedException, AWTException
+	public BranchCheckerApproval  uploadDocument(String type) throws InterruptedException, AWTException
 	{
 		switch(type)
 		{
@@ -46,11 +47,25 @@ public class UploadRequiredDocument extends ProjectSpecificMethod{
 						  action.keyPress(KeyEvent.VK_ENTER);
 						  action.keyRelease(KeyEvent.VK_ENTER);
 				
-			    
+			  
 			    WebElement submit = webdwait.until(ExpectedConditions
 						.elementToBeClickable(By.xpath("//button[text()='Submit']")));
 			    submit.click();
+			    
+			     reqid= driver.findElement(By.xpath("(//span[@class='SizedText---medium SizedText---predefined'])[2]")).getText();
+			     
+			     System.out.println("RequestId"+"="+reqid);
+			     
+			     driver.findElement(By.xpath("(//span[@class='SizedText---medium SizedText---predefined'])[2]")).click();
+			     
+			     test.info("Exceptional Cash 2 Cash Loans request Submitted sucessfully");
+			
+			     driver.close();
+			      
+			 
 		}
+		
+		  return new BranchCheckerApproval(); 
 		
 	}
 
