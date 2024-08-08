@@ -22,6 +22,7 @@ public class ReviewCustomerSceen extends ProjectSpecificMethod {
 		switch(type) {
 		
 		case "Exceptional_Cas2Cash":
+			
 			WebElement company = webdwait.until(ExpectedConditions
 					.elementToBeClickable(By.xpath("//input[@placeholder='Type to select the Company Name']")));
 			
