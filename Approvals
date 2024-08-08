@@ -1,0 +1,526 @@
+package approvals;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.assertthat.selenium_shutterbug.core.Capture;
+import com.assertthat.selenium_shutterbug.core.Shutterbug;
+
+import baseclass.ProjectSpecificMethod;
+
+public class BranchCheckerApproval extends ProjectSpecificMethod{
+	
+	WebDriverWait webdwait = new WebDriverWait(driver, Duration.ofSeconds(180));
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	
+	public void branchchecker() throws InterruptedException, IOException
+	
+	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		
+		driver.findElement(By.id("un")).sendKeys("LMBranchChecker");
+		driver.findElement(By.id("pw")).sendKeys("1234");
+		driver.findElement(By.xpath("//input[@value='Sign In']")).click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		
+		WebElement records = webdwait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//div[text()='Records']")));
+		records.click();
+		
+		driver.findElement(By.xpath("//input[@placeholder='Search record types...']")).sendKeys("Retail Loans");
+		driver.findElement(By.xpath("//button[text()='Search']")).click();
+		driver.findElement(By.xpath("//strong[text()='Retail Loans']")).click();
+		driver.findElement(By.xpath("//input[@placeholder='Search Retail Loans']")).sendKeys(reqid);
+		driver.findElement(By.xpath("//button[text()='Search']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("(//span[text()='Request Id']/following::a)[1]")).click();
+		
+		Thread.sleep(5000);
+		
+		js.executeScript("window.scrollBy(0,1300)");
+		
+		driver.findElement(By.partialLinkText("Branch Checker Approval")).click();
+		
+		Thread.sleep(5000);
+		
+		
+		  js.executeScript("window.scrollBy(0,-1300)"); 
+		  WebElement accept = webdwait.until(ExpectedConditions
+		  .elementToBeClickable(By.xpath("//button[text()='Accept']")));
+		  accept.click();
+		 
+		 
+		 
+		  js.executeScript("window.scrollBy(0,1200)");
+		  
+		  WebElement approve = webdwait.until(ExpectedConditions
+				  .elementToBeClickable(By.xpath("//button[text()='Approve']")));
+				  approve.click();
+		  
+		
+		driver.findElement(By.xpath("//button[text()='Yes']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.close();
+		
+	}
+	
+	public void creditmaker() throws InterruptedException
+	
+	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		driver.findElement(By.id("un")).sendKeys("LMCreditMaker");
+		driver.findElement(By.id("pw")).sendKeys("1234");
+		driver.findElement(By.xpath("//input[@value='Sign In']")).click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		
+		WebElement records = webdwait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//div[text()='Records']")));
+		records.click();
+		
+		driver.findElement(By.xpath("//input[@placeholder='Search record types...']")).sendKeys("Retail Loans");
+		driver.findElement(By.xpath("//button[text()='Search']")).click();
+		driver.findElement(By.xpath("//strong[text()='Retail Loans']")).click();
+		driver.findElement(By.xpath("//input[@placeholder='Search Retail Loans']")).sendKeys(reqid);
+		driver.findElement(By.xpath("//button[text()='Search']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("(//span[text()='Request Id']/following::a)[1]")).click();
+		
+		Thread.sleep(5000);
+		
+		js.executeScript("window.scrollBy(0,1300)");
+		
+		driver.findElement(By.partialLinkText("Credit Maker Approval")).click();
+		
+		Thread.sleep(3000);
+		
+		 js.executeScript("window.scrollBy(0,-1300)");
+		 
+		  WebElement accept = webdwait.until(ExpectedConditions
+		  .elementToBeClickable(By.xpath("//button[text()='Accept']")));
+		  accept.click();
+		 
+		
+		Thread.sleep(5000);
+		
+		js.executeScript("window.scrollBy(0,1300)");
+
+		
+		  WebElement approve = webdwait.until(ExpectedConditions
+				  .elementToBeClickable(By.xpath("//button[text()='Approve']")));
+				  approve.click();
+		
+		driver.findElement(By.xpath("//button[text()='Yes']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.close();
+		
+		
+		
+	}
+	public void creditchecker() throws InterruptedException
+	
+	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		driver.findElement(By.id("un")).sendKeys("LMCreditchecker");
+		driver.findElement(By.id("pw")).sendKeys("1234");
+		driver.findElement(By.xpath("//input[@value='Sign In']")).click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		
+		WebElement records = webdwait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//div[text()='Records']")));
+		records.click();
+		
+		driver.findElement(By.xpath("//input[@placeholder='Search record types...']")).sendKeys("Retail Loans");
+		driver.findElement(By.xpath("//button[text()='Search']")).click();
+		driver.findElement(By.xpath("//strong[text()='Retail Loans']")).click();
+		driver.findElement(By.xpath("//input[@placeholder='Search Retail Loans']")).sendKeys(reqid);
+		driver.findElement(By.xpath("//button[text()='Search']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("(//span[text()='Request Id']/following::a)[1]")).click();
+		
+		Thread.sleep(5000);
+		
+		js.executeScript("window.scrollBy(0,1300)");
+		
+		driver.findElement(By.partialLinkText("Credit Checker Approval")).click();
+		
+		Thread.sleep(3000);
+		
+		 js.executeScript("window.scrollBy(0,-1300)");
+		 
+		  WebElement accept = webdwait.until(ExpectedConditions
+		  .elementToBeClickable(By.xpath("//button[text()='Accept']")));
+		  accept.click();
+		 
+		
+		Thread.sleep(5000);
+		
+		js.executeScript("window.scrollBy(0,1300)");
+
+		
+		  WebElement approve = webdwait.until(ExpectedConditions
+				  .elementToBeClickable(By.xpath("//button[text()='Approve']")));
+				  approve.click();
+		
+		driver.findElement(By.xpath("//button[text()='Yes']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.close();
+		
+		
+		
+	}
+	
+public void branchmaker() throws InterruptedException, AWTException
+	
+	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		driver.findElement(By.id("un")).sendKeys("LMBranchMaker");
+		driver.findElement(By.id("pw")).sendKeys("1234");
+		driver.findElement(By.xpath("//input[@value='Sign In']")).click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		
+		WebElement records = webdwait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//div[text()='Records']")));
+		records.click();
+		
+		driver.findElement(By.xpath("//input[@placeholder='Search record types...']")).sendKeys("Retail Loans");
+		driver.findElement(By.xpath("//button[text()='Search']")).click();
+		driver.findElement(By.xpath("//strong[text()='Retail Loans']")).click();
+		driver.findElement(By.xpath("//input[@placeholder='Search Retail Loans']")).sendKeys(reqid);
+		driver.findElement(By.xpath("//button[text()='Search']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("(//span[text()='Request Id']/following::a)[1]")).click();
+		
+		Thread.sleep(5000);
+		
+		js.executeScript("window.scrollBy(0,1300)");
+		
+		driver.findElement(By.partialLinkText("Upload Contract Documents")).click();
+		
+		Thread.sleep(3000);
+		
+		 js.executeScript("window.scrollBy(0,-1300)");
+		 
+		  WebElement accept = webdwait.until(ExpectedConditions
+		  .elementToBeClickable(By.xpath("//button[text()='Accept']")));
+		  accept.click();
+		 
+		
+		Thread.sleep(5000);
+		
+		js.executeScript("window.scrollBy(0,1300)");
+		
+		Thread.sleep(5000);
+		
+		WebElement chooseFile = driver.findElement(By.xpath("(//button[text()='Upload'])[3]"));
+		File file = new File("./sample.jpg");
+		chooseFile.click();
+		Thread.sleep(3000);
+		 StringSelection upload =
+				  new StringSelection(file.getAbsolutePath());
+				  Toolkit.getDefaultToolkit().getSystemClipboard().setContents(upload, null);
+				  Robot action = new Robot(); 
+				  action.keyPress(KeyEvent.VK_CONTROL);
+				  action.keyPress(KeyEvent.VK_V); 
+				  action.keyRelease(KeyEvent.VK_CONTROL);
+				  action.keyRelease(KeyEvent.VK_V);
+				  Thread.sleep(3000);
+				  action.keyPress(KeyEvent.VK_ENTER);
+				  action.keyRelease(KeyEvent.VK_ENTER);
+
+				  Thread.sleep(5000);
+				  
+				  WebElement chooseFile1 = driver.findElement(By.xpath("(//button[text()='Upload'])[3]"));
+					File file1 = new File("./sample.jpg");
+					chooseFile1.click();
+					Thread.sleep(3000);
+					 StringSelection upload1 =
+							  new StringSelection(file1.getAbsolutePath());
+							  Toolkit.getDefaultToolkit().getSystemClipboard().setContents(upload1, null);
+							  Robot action1 = new Robot(); 
+							  action1.keyPress(KeyEvent.VK_CONTROL);
+							  action1.keyPress(KeyEvent.VK_V); 
+							  action1.keyRelease(KeyEvent.VK_CONTROL);
+							  action1.keyRelease(KeyEvent.VK_V);
+							  Thread.sleep(3000);
+							  
+							  action1.keyPress(KeyEvent.VK_ENTER);
+							  action1.keyRelease(KeyEvent.VK_ENTER);
+		
+							  Thread.sleep(5000);
+							  
+		  WebElement approve = webdwait.until(ExpectedConditions
+				  .elementToBeClickable(By.xpath("//button[text()='NEXT']")));
+				  approve.click();
+				  
+		Thread.sleep(3000);
+		
+		js.executeScript("window.scrollBy(0,1300)");
+		
+				  WebElement submit = webdwait.until(ExpectedConditions
+						  .elementToBeClickable(By.xpath("//button[text()='Submit']")));
+						  submit.click();
+		
+		Thread.sleep(3000);
+		
+		driver.close();
+			
+	}
+	public void creditadminmaker() throws InterruptedException
+	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		driver.findElement(By.id("un")).sendKeys("creditAdminMaker1");
+		driver.findElement(By.id("pw")).sendKeys("1234");
+		driver.findElement(By.xpath("//input[@value='Sign In']")).click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		
+		WebElement records = webdwait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//div[text()='Records']")));
+		records.click();
+		
+		driver.findElement(By.xpath("//input[@placeholder='Search record types...']")).sendKeys("Retail Loans");
+		driver.findElement(By.xpath("//button[text()='Search']")).click();
+		driver.findElement(By.xpath("//strong[text()='Retail Loans']")).click();
+		driver.findElement(By.xpath("//input[@placeholder='Search Retail Loans']")).sendKeys(reqid);
+		driver.findElement(By.xpath("//button[text()='Search']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("(//span[text()='Request Id']/following::a)[1]")).click();
+		
+		Thread.sleep(5000);
+		
+	js.executeScript("window.scrollBy(0,1300)");
+		
+		driver.findElement(By.partialLinkText("Credit Admin Maker Approval")).click();
+		
+		Thread.sleep(3000);
+		
+		 js.executeScript("window.scrollBy(0,-1300)");
+		 
+		  WebElement accept = webdwait.until(ExpectedConditions
+		  .elementToBeClickable(By.xpath("//button[text()='Accept']")));
+		  accept.click();
+		 
+		
+		Thread.sleep(5000);
+		
+		js.executeScript("window.scrollBy(0,1300)");
+
+		
+		  WebElement approve = webdwait.until(ExpectedConditions
+				  .elementToBeClickable(By.xpath("//button[text()='Approve']")));
+				  approve.click();
+		
+		driver.findElement(By.xpath("//button[text()='Yes']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.close();
+		
+		
+	}
+	
+	public void creditadminchecker() throws InterruptedException
+	{
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		
+		driver.findElement(By.id("un")).sendKeys("creditAdminChecker1");
+		driver.findElement(By.id("pw")).sendKeys("1234");
+		driver.findElement(By.xpath("//input[@value='Sign In']")).click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		WebElement records = webdwait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//div[text()='Records']")));
+		records.click();
+		
+		driver.findElement(By.xpath("//input[@placeholder='Search record types...']")).sendKeys("Retail Loans");
+		driver.findElement(By.xpath("//button[text()='Search']")).click();
+		driver.findElement(By.xpath("//strong[text()='Retail Loans']")).click();
+		driver.findElement(By.xpath("//input[@placeholder='Search Retail Loans']")).sendKeys(reqid);
+		driver.findElement(By.xpath("//button[text()='Search']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("(//span[text()='Request Id']/following::a)[1]")).click();
+		
+		Thread.sleep(5000);
+		
+	js.executeScript("window.scrollBy(0,1600)");
+	
+	 WebElement task = webdwait.until(ExpectedConditions
+			  .elementToBeClickable(By.partialLinkText("Credit Admin Checker Approval")));
+			  task.click();
+		
+		
+		Thread.sleep(3000);
+		
+		 js.executeScript("window.scrollBy(0,-1300)");
+		 
+		  WebElement accept = webdwait.until(ExpectedConditions
+		  .elementToBeClickable(By.xpath("//button[text()='Accept']")));
+		  accept.click();
+		 
+		
+		Thread.sleep(5000);
+		
+		js.executeScript("window.scrollBy(0,1300)");
+
+		
+		  WebElement approve = webdwait.until(ExpectedConditions
+				  .elementToBeClickable(By.xpath("//button[text()='Approve']")));
+				  approve.click();
+		
+		driver.findElement(By.xpath("//button[text()='Yes']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.close();
+	
+		
+	}
+	public void OperationMaker() throws InterruptedException
+	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		driver.findElement(By.id("un")).sendKeys("LMOperationMaker");
+		driver.findElement(By.id("pw")).sendKeys("1234");
+		driver.findElement(By.xpath("//input[@value='Sign In']")).click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		
+		WebElement records = webdwait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//div[text()='Records']")));
+		records.click();
+		
+		driver.findElement(By.xpath("//input[@placeholder='Search record types...']")).sendKeys("Retail Loans");
+		driver.findElement(By.xpath("//button[text()='Search']")).click();
+		driver.findElement(By.xpath("//strong[text()='Retail Loans']")).click();
+		driver.findElement(By.xpath("//input[@placeholder='Search Retail Loans']")).sendKeys(reqid);
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//button[text()='Search']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("(//span[text()='Request Id']/following::a)[1]")).click();
+		
+		Thread.sleep(5000);
+		
+		js.executeScript("window.scrollBy(0,1300)");
+		
+		driver.findElement(By.partialLinkText("Operation Maker Approval")).click();
+		
+		Thread.sleep(5000);
+		
+		 js.executeScript("window.scrollBy(0,-1600)");
+		 
+			
+			  WebElement accept = webdwait.until(ExpectedConditions
+			  .elementToBeClickable(By.xpath("//button[text()='Accept']")));
+			  accept.click();
+			 
+		 
+		
+		Thread.sleep(5000);
+		
+		js.executeScript("window.scrollBy(0,1600)");
+
+		
+		  WebElement approve = webdwait.until(ExpectedConditions
+				  .elementToBeClickable(By.xpath("//button[text()='Approve']")));
+				  approve.click();
+		
+		driver.findElement(By.xpath("//button[text()='Yes']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.close();	
+	}
+	
+	public void OperationChecker() throws InterruptedException
+	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		driver.findElement(By.id("un")).sendKeys("LMOperationChecker");
+		driver.findElement(By.id("pw")).sendKeys("1234");
+		driver.findElement(By.xpath("//input[@value='Sign In']")).click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		
+		WebElement records = webdwait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//div[text()='Records']")));
+		records.click();
+		
+		driver.findElement(By.xpath("//input[@placeholder='Search record types...']")).sendKeys("Retail Loans");
+		driver.findElement(By.xpath("//button[text()='Search']")).click();
+		driver.findElement(By.xpath("//strong[text()='Retail Loans']")).click();
+		driver.findElement(By.xpath("//input[@placeholder='Search Retail Loans']")).sendKeys(reqid);
+		driver.findElement(By.xpath("//button[text()='Search']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("(//span[text()='Request Id']/following::a)[1]")).click();
+		
+		Thread.sleep(5000);
+		
+	js.executeScript("window.scrollBy(0,1300)");
+		
+		driver.findElement(By.partialLinkText("Operation Checker Approval")).click();
+		
+		Thread.sleep(3000);
+		
+		 js.executeScript("window.scrollBy(0,-1600)");
+		 
+			
+			  WebElement accept = webdwait.until(ExpectedConditions
+			  .elementToBeClickable(By.xpath("//button[text()='Accept']")));
+			  accept.click();
+			 
+		 
+		
+		Thread.sleep(5000);
+		
+		driver.findElement(By.xpath("//label[text()='Reference Id : ']/following::input")).sendKeys("79865422");
+		
+		driver.findElement(By.xpath("//span[text()='Buyout and Against Cash Details']")).click();
+		
+		Thread.sleep(2000);
+		
+		js.executeScript("window.scrollBy(0,1600)");
+
+		
+		  WebElement approve = webdwait.until(ExpectedConditions
+				  .elementToBeClickable(By.xpath("//button[text()='Complete']")));
+				  approve.click();
+		
+		driver.findElement(By.xpath("//button[text()='Yes']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.quit();
+		
+		
+	}
+
+}
