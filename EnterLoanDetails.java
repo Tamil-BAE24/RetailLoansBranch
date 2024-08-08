@@ -74,11 +74,14 @@ public class EnterLoanDetails extends ProjectSpecificMethod {
 				.elementToBeClickable(By.xpath("//button[text()='Next']")));
 		next1.click();
 		
+		js.executeScript("window.scrollBy(0,-600)");
 		driver.findElement(By.xpath("//span[text()='Delivery of Credit Card']//following::label[text()='No']")).click();
 		
 		WebElement next2 = webdwait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//button[text()='Next']")));
 		next2.click();
+		
+		
 		
 		break;
 		}
