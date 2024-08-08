@@ -27,6 +27,7 @@ public class ReviewRetailLoanScreen extends ProjectSpecificMethod {
 				.elementToBeClickable(By.xpath("//button[text()='NEXT']")));
 		next2.click();
 		
+		
 		break;
 		}
 		
