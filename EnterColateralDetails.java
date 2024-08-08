@@ -38,6 +38,7 @@ public class EnterColateralDetails extends ProjectSpecificMethod {
 				.elementToBeClickable(By.xpath("//button[text()='Next']")));
 		next2.click();
 		
+		
 		break;
 		}
 		
