@@ -13,7 +13,11 @@ public class LoginAndSelectFlow extends ProjectSpecificMethod {
 	public  ReviewCustomerSceen SelectApplication(String type) throws InterruptedException
 	{
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		
+		driver.findElement(By.id("un")).sendKeys("LMBranchMaker");
+		driver.findElement(By.id("pw")).sendKeys("1234");
+		driver.findElement(By.xpath("//input[@value='Sign In']")).click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		driver.findElement(By.xpath("//span[text()='Retail Loans']")).click();
 		Thread.sleep(5000);
 		switch(type) {
 		
